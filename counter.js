@@ -119,16 +119,23 @@ function render() {
           >
             <!-- for each counter -->
             <div>
+            <!-- info -->
+            <div
+              class="info"
+              style="display: flex"
+            >
+              <div class="name-box">`+ listOfObjects[key].name + `</div>
+            </div>
               <!-- button down  -->
-              <div style="display: flex;">
+              <div style="display: flex;padding:0px 20px">
                 <!-- edit button  -->
                 <div class="left-right-button-body">
                   <button onclick="edit(`+ listOfObjects[key].id + `)" class="filled btn-up edit-btn">Edit</button>
                 </div>
                 <!-- gap  -->
-                <div style="padding: 10px;">
-                <small>Bet</small>
-                  <div style="width: 100%; font-size: 0.5em;">RM`+ listOfObjects[key].curBet + `</div>
+                <div style="padding: 10px;width: 70%;">
+                <p style="text-align:center"><small class="small-font">Bet RM`+ listOfObjects[key].curBet + `</small></p>
+
                 </div>
                 <!-- del button  -->
                 <div class="left-right-button-body">
@@ -136,15 +143,9 @@ function render() {
                 </div>
               </div>
   
-              <!-- info -->
-              <div
-                class="info"
-                style="display: flex"
-              >
-                <div class="name-box">`+ listOfObjects[key].name + `</div>
-              </div>
+
               <!-- button down  -->
-              <div style="display: flex">
+              <div style="display: flex;margin-top:10px">
                 <!-- left button  -->
                 <div class="left-right-button-body">
                   <button onclick="sub(`+ listOfObjects[key].id + `)" class="filled left-right-button left-button">-</button>
