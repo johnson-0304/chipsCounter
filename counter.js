@@ -78,7 +78,7 @@ function addUser() {
         if (userName != "" && (userName != null)) {
             break
         }
-    } while (userName == "")
+    } while (userName == "" || (userName == null))
     do {
         bet = prompt('Type bet (number)');
         if (isNumeric(bet)) {
@@ -129,6 +129,7 @@ function render() {
                 </div>
                 <!-- gap  -->
                 <div style="padding: 10px;">
+                <small>Bet</small>
                   <div style="width: 100%; font-size: 0.5em;">RM`+ listOfObjects[key].curBet + `</div>
                 </div>
                 <!-- del button  -->
@@ -152,8 +153,8 @@ function render() {
                 </div>
                 <!-- gap  -->
                 <div style="padding: 10px;">
-                  <div style="width: 100%">Profit</div>
-                  <div style="width: 100%;text-align:center">`+ "RM" + listOfObjects[key].curChips + `</div>
+                  <div style="width: 100%">RM</div>
+                  <div style="width: 100%;text-align:center">`+ listOfObjects[key].curChips + `</div>
                 </div>
                 <!-- right button  -->
                 <div class="left-right-button-body">
