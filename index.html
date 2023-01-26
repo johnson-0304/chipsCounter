@@ -1,12 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chips Counter</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chips Counter</title>
+    <script src="themeChanger.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <section class="logo">
+        <div>
+          <h1>Chips Counter</h1>
+        </div>
+        <div class="themeHeader">
+          <small>Theme</small>
+          <form>
+            <label class="themeNum"
+              ><span>1</span><span>2</span><span>3</span></label
+            >
+            <div id="themeThumb">
+              <label
+                for="dark"
+                class="visuallyHidden"
+                >Dark Theme</label
+              >
+              <input
+                type="radio"
+                value="dark"
+                id="dark"
+                name="theme"
+                checked
+              />
+              <label
+                for="light"
+                class="visuallyHidden"
+                >Light Theme</label
+              >
+              <input
+                type="radio"
+                value="light"
+                id="light"
+                name="theme"
+              />
+              <label
+                for="purple"
+                class="visuallyHidden"
+                >Purple Theme</label
+              >
+              <input
+                type="radio"
+                value="purple"
+                id="purple"
+                name="theme"
+              />
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div id="content-body">
+
+
+        <!-- <label for="screen" class="visuallyHidden">Screen</label>
+      <input type="text" id="screen" disabled>
+      <input style="margin-top: 10px;" type="text" id="small-screen" disabled> -->
+        <div
+          class="counter-body"
+          style="padding: 15px"
+        >
+          <!-- for each counter -->
+          <div>
+            <!-- button down  -->
+            <div style="display: flex;">
+              <!-- edit button  -->
+              <div class="left-right-button-body">
+                <button onclick="edit(2323)" class="filled btn-up edit-btn">Edit</button>
+              </div>
+              <!-- gap  -->
+              <div style="padding: 10px;">
+                <div style="width: 100%; font-size: 0.5em;">RM20</div>
+              </div>
+              <!-- del button  -->
+              <div class="left-right-button-body">
+                <button onclick="del(4444)" class="filled btn-up del-btn">Del</button>
+              </div>
+            </div>
+
+            <!-- info -->
+            <div
+              class="info"
+              style="display: flex"
+            >
+              <div class="name-box">Alisdsdsdce</div>
+            </div>
+            <!-- button down  -->
+            <div style="display: flex">
+              <!-- left button  -->
+              <div class="left-right-button-body">
+                <button onclick="sub(222)" class="filled left-right-button left-button">-</button>
+              </div>
+              <!-- gap  -->
+              <div style="padding: 10px;">
+                <div style="width: 100%">//</div>
+                <div style="width: 100%">1000</div>
+              </div>
+              <!-- right button  -->
+              <div class="left-right-button-body">
+                <button onclick="add(111)" class="filled left-right-button right-button">+</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <button onclick="addUser()" style="background-color:darkmagenta;font-size: 1.2em; padding: 5px;margin-top: 20px;" class="filled">Add</button>
+      <!-- <div class="btnInput">
+      <button class="btn hollow" data-val="7">7</button>
+      <button class="btn hollow" data-val="8">8</button>
+      <button class="btn hollow" data-val="9">9</button>
+      <button class="filled" id="delBtn">Del</button>
+      <button class="btn hollow" data-val="4">4</button>
+      <button class="btn hollow" data-val="5">5</button>
+      <button class="btn hollow" data-val="6">6</button>
+      <button class="btn hollow" data-val="J">J</button>
+      <button class="btn hollow" data-val="1">1</button>
+      <button class="btn hollow" data-val="2">2</button>
+      <button class="btn hollow" data-val="3">3</button>
+      <button class="btn hollow" data-val="Q">Q</button>
+      <button class="hollow" onclick="getRandomArrayElements()">💥</button>
+      <button class="btn hollow" data-val="A">A</button>
+      <button class="btn hollow" data-val="10">10</button>
+
+      <button class="btn hollow" data-val="K">K</button>
+      <button class="filled" id="resetBtn">Reset</button>
+      <button class="equalBtn" id="equalBtn">=</button>
+      
+    </div> -->
+    </main>
+
+    <script src="counter.js"></script>
+  </body>
 </html>
