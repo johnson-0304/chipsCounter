@@ -13,7 +13,7 @@ function edit(id) {
         }
     } while (!isNumeric(bet))
     objIndex = listOfObjects.findIndex((obj => obj.id == id));
-    console.log(objIndex)
+
     listOfObjects[objIndex].curBet = bet
     savelistOfObjects(listOfObjects)
     render()
@@ -92,7 +92,7 @@ function addUser() {
 
     listOfObjects.push(newUser)
     savelistOfObjects(listOfObjects)
-    console.log(listOfObjects)
+
     render()
 }
 
@@ -111,7 +111,7 @@ function render() {
     content = ""
 
     listOfObjects = getlistOfObjects();
-    console.log(listOfObjects)
+
     for (var key in listOfObjects) {
         if (listOfObjects.hasOwnProperty(key)) {
 
@@ -153,7 +153,7 @@ function render() {
                 <!-- gap  -->
                 <div style="padding: 10px;">
                   <div style="width: 100%">Profit</div>
-                  <div style="width: 100%;text-align:center">`+ listOfObjects[key].curChips + `</div>
+                  <div style="width: 100%;text-align:center">`+ "RM" + listOfObjects[key].curChips + `</div>
                 </div>
                 <!-- right button  -->
                 <div class="left-right-button-body">
