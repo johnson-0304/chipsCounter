@@ -1,7 +1,5 @@
 var listOfObjects = [
-    { id: 654564654564, name: "asdsd", curChips: 20055, curBet: 5 },
-    { id: 123123123, name: "asdasd", curChips: 20055, curBet: 5 },
-    { id: 654564654564, name: "xcvxcxcv", curChips: 20055, curBet: 5 },
+
 ];
 
 function edit(id) {
