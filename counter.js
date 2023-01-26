@@ -75,7 +75,7 @@ function addUser() {
     // let bet = prompt('Type bet (number)');
     do {
         userName = prompt('Type Type Username');
-        if (userName != "") {
+        if (userName != "" && (userName != null)) {
             break
         }
     } while (userName == "")
