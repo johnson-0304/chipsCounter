@@ -1,119 +1,129 @@
+
 var listOfObjects = [
 
 ];
 
-function edit(id) {
-    listOfObjects = getlistOfObjects();
-    do {
-        bet = prompt('Type bet (number)');
-        if (isNumeric(bet)) {
-            break
-        }
-    } while (!isNumeric(bet))
-    objIndex = listOfObjects.findIndex((obj => obj.id == id));
 
-    listOfObjects[objIndex].curBet = bet
-    savelistOfObjects(listOfObjects)
-    render()
+
+function edit(id) {
+  listOfObjects = getlistOfObjects();
+  do {
+    bet = prompt('Type bet (number)');
+    if (isNumeric(bet)) {
+      break
+    }
+  } while (!isNumeric(bet))
+  objIndex = listOfObjects.findIndex((obj => obj.id == id));
+
+
+
+  listOfObjects[objIndex].curBet = bet
+  savelistOfObjects(listOfObjects)
+  render()
 }
 
 function removeObjectWithId(arr, id) {
-    const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
+  const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
 
-    if (objWithIdIndex > -1) {
-        arr.splice(objWithIdIndex, 1);
-    }
+  if (objWithIdIndex > -1) {
+    arr.splice(objWithIdIndex, 1);
+  }
 
-    return arr;
+  return arr;
 }
 
 function del(id) {
-    if (confirm('Are you sure you want to delete?')) {
-        savelistOfObjects(removeObjectWithId(getlistOfObjects(), id))
-        render()
-        
-      } else {
+  if (confirm('Are you sure you want to delete?')) {
+    savelistOfObjects(removeObjectWithId(getlistOfObjects(), id))
+    render()
 
-      }
+  } else {
+
+  }
 
 }
 
 function sub(id) {
-    listOfObjects = getlistOfObjects();
-    objIndex = listOfObjects.findIndex((obj => obj.id == id));
-    
-    listOfObjects[objIndex].curChips -= +listOfObjects[objIndex].curBet
-    savelistOfObjects(listOfObjects)
-    render()
+  listOfObjects = getlistOfObjects();
+  objIndex = listOfObjects.findIndex((obj => obj.id == id));
+
+  listOfObjects[objIndex].curChips = Decimal.sub(listOfObjects[objIndex].curChips, listOfObjects[objIndex].curBet)
+  savelistOfObjects(listOfObjects)
+  render()
 }
 
 function add(id) {
-    listOfObjects = getlistOfObjects();
-    objIndex = listOfObjects.findIndex((obj => obj.id == id));
-    
-    listOfObjects[objIndex].curChips += +listOfObjects[objIndex].curBet
-    savelistOfObjects(listOfObjects)
-    render()
+  listOfObjects = getlistOfObjects();
+  objIndex = listOfObjects.findIndex((obj => obj.id == id));
+
+
+  listOfObjects[objIndex].curChips = Decimal.add(listOfObjects[objIndex].curChips, listOfObjects[objIndex].curBet)
+
+  // listOfObjects[objIndex].curChips += +listOfObjects[objIndex].curBet
+
+  listOfObjects[objIndex].curChips.toFixed(1)
+  savelistOfObjects(listOfObjects)
+  render()
 }
 
 
 
 
 function savelistOfObjects(listOfObjects) {
-    localStorage.setItem("listOfObjects", JSON.stringify(listOfObjects));
+  localStorage.setItem("listOfObjects", JSON.stringify(listOfObjects));
 }
 
 function getlistOfObjects() {
-    listOfObjects = JSON.parse(localStorage.getItem("listOfObjects") || "[]");
-    return listOfObjects
+  listOfObjects = JSON.parse(localStorage.getItem("listOfObjects") || "[]");
+  return listOfObjects
 }
 
 function addUser() {
-    // let userName = prompt('Type Username');
-    // let bet = prompt('Type bet (number)');
-    do {
-        userName = prompt('Type Type Username');
-        if (userName != "" && (userName != null)) {
-            break
-        }
-    } while (userName == "" || (userName == null))
-    do {
-        bet = prompt('Type bet (number)');
-        if (isNumeric(bet)) {
-            break
-        }
-    } while (!isNumeric(bet))
-    listOfObjects = getlistOfObjects();
-    id = new Date().valueOf();;
+  // let userName = prompt('Type Username');
+  // let bet = prompt('Type bet (number)');
+  do {
+    userName = prompt('Type Type Username');
+    if (userName != "" && (userName != null)) {
+      break
+    }
+  } while (userName == "" || (userName == null))
+  do {
+    bet = prompt('Type bet (number)');
+    if (isNumeric(bet)) {
+      break
+    }
+  } while (!isNumeric(bet))
+  listOfObjects = getlistOfObjects();
+  id = new Date().valueOf();;
 
-    newUser = { id: id, name: userName, curChips: 0, curBet: bet }
+  newUser = { id: id, name: userName, curChips: 0, curBet: bet }
 
-    listOfObjects.push(newUser)
-    savelistOfObjects(listOfObjects)
+  listOfObjects.push(newUser)
+  savelistOfObjects(listOfObjects)
 
-    render()
+  render()
 }
 
 //check element is number or not
 function isNumeric(str) {
-    if (typeof str != "string") return false; // we only process strings!
-    return (
-        !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-        !isNaN(parseFloat(str))
-    ); // ...and ensure strings of whitespace fail
+  if (typeof str != "string") return false; // we only process strings!
+  return (
+    !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+    !isNaN(parseFloat(str))
+  ); // ...and ensure strings of whitespace fail
 }
 
 function render() {
-    contentBody = document.getElementById("content-body");
-    contentBody.innerHTML = ""
-    content = ""
+  contentBody = document.getElementById("content-body");
+  contentBody.innerHTML = ""
+  content = ""
 
-    listOfObjects = getlistOfObjects();
+  listOfObjects = getlistOfObjects();
 
-    for (var key in listOfObjects) {
-        if (listOfObjects.hasOwnProperty(key)) {
+  for (var key in listOfObjects) {
+    if (listOfObjects.hasOwnProperty(key)) {
 
-            curContent = `<div
+      curContent = `<div
             class="counter-body"
             style="padding: 15px;margin-top:20px"
           >
@@ -164,13 +174,13 @@ function render() {
             
           </div>`
 
-            content += curContent
+      content += curContent
 
-        }
-        contentBody.innerHTML = content
     }
+    contentBody.innerHTML = content
+  }
 }
 
 window.addEventListener("load", (event) => {
-    render()
+  render()
 });
