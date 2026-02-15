@@ -203,12 +203,13 @@ function playerWin(id) {
   var idx = players.findIndex(function (p) { return p.id == id; });
   if (idx === -1) return;
 
-  players[idx].curChips = Decimal.add(players[idx].curChips, players[idx].curBet).toString();
+  // Player wins = dealer loses money
+  players[idx].curChips = Decimal.sub(players[idx].curChips, players[idx].curBet).toString();
   savePlayers(players);
 
   var dealer = getDealer() || "Dealer";
-  addHistoryEntry(players[idx].name + " wins", "+" + players[idx].curBet);
-  showToast(players[idx].name + " wins +RM" + players[idx].curBet);
+  addHistoryEntry(players[idx].name + " wins", "-" + players[idx].curBet);
+  showToast(players[idx].name + " wins -RM" + players[idx].curBet);
   pulseClock();
   render();
   triggerAnimations(id);
@@ -219,12 +220,13 @@ function dealerWin(id) {
   var idx = players.findIndex(function (p) { return p.id == id; });
   if (idx === -1) return;
 
-  players[idx].curChips = Decimal.sub(players[idx].curChips, players[idx].curBet).toString();
+  // Dealer wins = dealer gains money
+  players[idx].curChips = Decimal.add(players[idx].curChips, players[idx].curBet).toString();
   savePlayers(players);
 
   var dealer = getDealer() || "Dealer";
-  addHistoryEntry(dealer + " wins vs " + players[idx].name, "-" + players[idx].curBet);
-  showToast(dealer + " wins -RM" + players[idx].curBet);
+  addHistoryEntry(dealer + " wins vs " + players[idx].name, "+" + players[idx].curBet);
+  showToast(dealer + " wins +RM" + players[idx].curBet);
   pulseClock();
   render();
   triggerAnimations(id);
@@ -355,8 +357,8 @@ function render() {
       '<div class="card-chips ' + chipClass + '" data-chip-id="' + p.id + '">RM ' + chipDisplay + '</div>' +
       '<div class="card-bet">Bet RM' + escapeHtml(String(p.curBet)) + '</div>' +
       '<div class="card-buttons">' +
-        '<button class="btn-win btn-player-win" onclick="playerWin(' + p.id + ')">' + escapeHtml(p.name) + ' Wins</button>' +
         '<button class="btn-win btn-dealer-win" onclick="dealerWin(' + p.id + ')">' + escapeHtml(dealer) + ' Wins</button>' +
+        '<button class="btn-win btn-player-win" onclick="playerWin(' + p.id + ')">' + escapeHtml(p.name) + ' Wins</button>' +
       '</div>' +
     '</div>';
   }
