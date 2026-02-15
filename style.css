@@ -357,14 +357,14 @@ input[name="theme"]:checked:hover {
   animation: btnFlash 0.35s ease;
 }
 
-.btn-dealer-win {
-  background: var(--win-color);
-  box-shadow: 0 3px 0 #2e7d32;
-}
-
 .btn-player-win {
   background: var(--lose-color);
   box-shadow: 0 3px 0 #b71c1c;
+}
+
+.btn-dealer-win {
+  background: var(--win-color);
+  box-shadow: 0 3px 0 #2e7d32;
 }
 
 /* === Add button === */

@@ -8,3 +8,5 @@
 {"t":0,"agent":"a382751","agent_type":"code-reviewer","event":"agent_stop","success":true,"duration_ms":93270}
 {"t":0,"agent":"a4da51f","agent_type":"unknown","event":"agent_stop","success":true}
 {"t":0,"agent":"aec99ab","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a91cee2","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"a171805","agent_type":"unknown","event":"agent_stop","success":true}

@@ -357,8 +357,8 @@ function render() {
       '<div class="card-chips ' + chipClass + '" data-chip-id="' + p.id + '">RM ' + chipDisplay + '</div>' +
       '<div class="card-bet">Bet RM' + escapeHtml(String(p.curBet)) + '</div>' +
       '<div class="card-buttons">' +
-        '<button class="btn-win btn-dealer-win" onclick="dealerWin(' + p.id + ')">' + escapeHtml(dealer) + ' Wins</button>' +
         '<button class="btn-win btn-player-win" onclick="playerWin(' + p.id + ')">' + escapeHtml(p.name) + ' Wins</button>' +
+        '<button class="btn-win btn-dealer-win" onclick="dealerWin(' + p.id + ')">' + escapeHtml(dealer) + ' Wins</button>' +
       '</div>' +
     '</div>';
   }
