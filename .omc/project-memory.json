@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1771143976562,
+  "projectRoot": "/home/johnson/code/chipsCounter",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {},
+  "hotPaths": [
+    {
+      "path": "counter.js",
+      "accessCount": 14,
+      "lastAccessed": 1771145449834,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 7,
+      "lastAccessed": 1771145485245,
+      "type": "file"
+    },
+    {
+      "path": "style.css",
+      "accessCount": 4,
+      "lastAccessed": 1771145079723,
+      "type": "file"
+    },
+    {
+      "path": "themeChanger.js",
+      "accessCount": 4,
+      "lastAccessed": 1771145322737,
+      "type": "file"
+    },
+    {
+      "path": "sw.js",
+      "accessCount": 3,
+      "lastAccessed": 1771145485411,
+      "type": "file"
+    },
+    {
+      "path": "manifest.json",
+      "accessCount": 2,
+      "lastAccessed": 1771145244139,
+      "type": "file"
+    },
+    {
+      "path": "icons/icon.svg",
+      "accessCount": 2,
+      "lastAccessed": 1771145322767,
+      "type": "file"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "accessCount": 1,
+      "lastAccessed": 1771144024687,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1771145343325,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}

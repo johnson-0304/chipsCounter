@@ -2,199 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <!-- displays site properly based on user's device -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link
-      rel="stylesheet"
-      href="style.css"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1a2238" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Chips Counter" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+    <link rel="apple-touch-icon" href="icons/icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
     <title>Chips Counter</title>
-    <script src="themeChanger.js"></script>
   </head>
-
   <body>
     <main>
-      <section class="logo">
-        <div>
-          <h1>Chips Counter</h1>
-        </div>
-        <div class="themeHeader">
-          <!-- <small>Theme</small> -->
-          <form>
-            <label class="themeNum"
-              ><span>1</span><span>2</span><span>3</span></label
-            >
-            <div id="themeThumb">
-              <label
-                for="dark"
-                class="visuallyHidden"
-                >Dark Theme</label
-              >
-              <input
-                type="radio"
-                value="dark"
-                id="dark"
-                name="theme"
-                checked
-              />
-              <label
-                for="light"
-                class="visuallyHidden"
-                >Light Theme</label
-              >
-              <input
-                type="radio"
-                value="light"
-                id="light"
-                name="theme"
-              />
-              <label
-                for="purple"
-                class="visuallyHidden"
-                >Purple Theme</label
-              >
-              <input
-                type="radio"
-                value="purple"
-                id="purple"
-                name="theme"
-              />
-            </div>
-          </form>
+      <!-- Header -->
+      <section class="header">
+        <h1 class="app-title">Chips Counter</h1>
+        <div class="header-right">
+          <div id="clock" class="clock">00:00:00</div>
+          <div class="theme-toggle">
+            <form>
+              <label class="themeNum"><span>1</span><span>2</span><span>3</span></label>
+              <div id="themeThumb">
+                <label for="dark" class="visuallyHidden">Dark Theme</label>
+                <input type="radio" value="dark" id="dark" name="theme" checked />
+                <label for="light" class="visuallyHidden">Light Theme</label>
+                <input type="radio" value="light" id="light" name="theme" />
+                <label for="purple" class="visuallyHidden">Purple Theme</label>
+                <input type="radio" value="purple" id="purple" name="theme" />
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
-      <div id="content-body">
-        <!-- <label for="screen" class="visuallyHidden">Screen</label>
-      <input type="text" id="screen" disabled>
-      <input style="margin-top: 10px;" type="text" id="small-screen" disabled> -->
-        <div
-          class="counter-body"
-          style="padding: 15px"
-        >
-          <!-- for each counter -->
-          <div>
-            <!-- info -->
-            <div
-              class="info"
-              style="display: flex"
-            >
-              <div class="name-box">Alisdsdsdce</div>
-            </div>
-            <!-- button down  -->
-            <div style="display: flex">
-              <!-- edit button  -->
-              <div class="left-right-button-body">
-                <button
-                  onclick="edit(2323)"
-                  class="filled btn-up edit-btn"
-                >
-                  Edit
-                </button>
-              </div>
-              <!-- gap  -->
-              <div style="padding: 10px">
-                <div style="width: 100%; font-size: 0.5em">RM20</div>
-              </div>
-              <!-- del button  -->
-              <div class="left-right-button-body">
-                <button
-                  onclick="del(4444)"
-                  class="filled btn-up del-btn"
-                >
-                  Del
-                </button>
-              </div>
-            </div>
+      <!-- Toast notification -->
+      <div id="toast" class="toast"></div>
 
-            <!-- button down  -->
-            <div style="display: flex">
-              <!-- left button  -->
-              <div class="left-right-button-body">
-                <button
-                  onclick="sub(222)"
-                  class="filled left-right-button left-button"
-                >
-                  -
-                </button>
-              </div>
-              <!-- gap  -->
-              <div style="padding: 10px">
-                <div style="width: 100%">//</div>
-                <div style="width: 100%">1000</div>
-              </div>
-              <!-- right button  -->
-              <div class="left-right-button-body">
-                <button
-                  onclick="add(111)"
-                  class="filled left-right-button right-button"
-                >
-                  +
-                </button>
-              </div>
-            </div>
+      <!-- Dealer section -->
+      <section class="dealer-section">
+        <div class="dealer-label">Dealer</div>
+        <div class="dealer-name" id="dealer-name" onclick="showDealerModal()">
+          Click to set
+        </div>
+      </section>
+
+      <!-- Player cards -->
+      <div id="content-body"></div>
+
+      <!-- Add player button -->
+      <button onclick="showAddPlayerModal()" class="add-btn">+ Add Player</button>
+
+      <!-- History panel -->
+      <section class="history-section">
+        <div class="history-header" onclick="toggleHistory()">
+          <span>History</span>
+          <span id="history-toggle-icon" class="history-arrow">&#9660;</span>
+        </div>
+        <div id="history-body" class="history-body hidden">
+          <div id="history-list"></div>
+          <button onclick="clearHistory()" class="clear-history-btn">Clear History</button>
+        </div>
+      </section>
+
+      <!-- Modal overlay -->
+      <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+          <div class="modal-title" id="modal-title"></div>
+          <input type="text" id="modal-input" class="modal-input" autocomplete="off" />
+          <input type="text" id="modal-input-2" class="modal-input hidden" autocomplete="off" />
+          <div class="modal-actions">
+            <button onclick="modalCancel()" class="modal-btn modal-btn-cancel">Cancel</button>
+            <button onclick="modalConfirm()" class="modal-btn modal-btn-confirm">OK</button>
           </div>
         </div>
       </div>
-      <button
-        onclick="addUser()"
-        style="
-          background-color: darkmagenta;
-          font-size: 1.2em;
-          padding: 5px;
-          margin-top: 20px;
-        "
-        class="filled"
-      >
-        Add
-      </button>
-      <!-- <div class="btnInput">
-      <button class="btn hollow" data-val="7">7</button>
-      <button class="btn hollow" data-val="8">8</button>
-      <button class="btn hollow" data-val="9">9</button>
-      <button class="filled" id="delBtn">Del</button>
-      <button class="btn hollow" data-val="4">4</button>
-      <button class="btn hollow" data-val="5">5</button>
-      <button class="btn hollow" data-val="6">6</button>
-      <button class="btn hollow" data-val="J">J</button>
-      <button class="btn hollow" data-val="1">1</button>
-      <button class="btn hollow" data-val="2">2</button>
-      <button class="btn hollow" data-val="3">3</button>
-      <button class="btn hollow" data-val="Q">Q</button>
-      <button class="hollow" onclick="getRandomArrayElements()">💥</button>
-      <button class="btn hollow" data-val="A">A</button>
-      <button class="btn hollow" data-val="10">10</button>
 
-      <button class="btn hollow" data-val="K">K</button>
-      <button class="filled" id="resetBtn">Reset</button>
-      <button class="equalBtn" id="equalBtn">=</button>
-      
-    </div> -->
+      <!-- Confirm dialog -->
+      <div id="confirm-overlay" class="modal-overlay hidden" onclick="closeConfirm(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+          <div class="modal-title" id="confirm-title"></div>
+          <div class="modal-actions">
+            <button onclick="confirmNo()" class="modal-btn modal-btn-cancel">Cancel</button>
+            <button onclick="confirmYes()" class="modal-btn modal-btn-confirm">Confirm</button>
+          </div>
+        </div>
+      </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/9.0.0/decimal.js"></script>
+
+    <script src="decimal.js"></script>
+    <script src="themeChanger.js"></script>
     <script src="counter.js"></script>
   </body>
 </html>

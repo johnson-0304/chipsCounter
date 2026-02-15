@@ -1,26 +1,33 @@
-// let themeGet = window.localStorage.getItem('data-theme');
+// Theme switcher - persist and apply theme
+(function () {
+  var saved = localStorage.getItem("theme");
+  if (saved && saved !== "dark") {
+    document.documentElement.setAttribute("data-theme", saved);
+  }
 
-// if (themeGet) {
-//     document.firstElementChild.setAttribute('data-theme', themeGet);
-// }
+  document.addEventListener("DOMContentLoaded", function () {
+    var radios = document.querySelectorAll('input[name="theme"]');
+    var saved = localStorage.getItem("theme");
 
-// window.onload = () => {
+    if (saved) {
+      if (saved !== "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+      radios.forEach(function (r) {
+        r.checked = r.value === saved;
+      });
+    }
 
-//     let theme = document.querySelectorAll('input[name="theme"]');
-
-//     if (themeGet) {
-//         theme[0].checked = themeGet == 'dark' ? true : false;
-//         theme[1].checked = themeGet == 'light' ? true : false;
-//         theme[2].checked = themeGet == 'purple' ? true : false;
-//     }
-
-//     for (let i = 0; i <= theme.length; i++) {
-
-//         theme[i].addEventListener('change', function () {
-//             document.firstElementChild.setAttribute('data-theme', theme[i].value);
-
-//             localStorage.setItem('data-theme', theme[i].value);
-//         });
-
-//     }
-// }
+    radios.forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        var val = this.value;
+        if (val === "dark") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", val);
+        }
+        localStorage.setItem("theme", val);
+      });
+    });
+  });
+})();

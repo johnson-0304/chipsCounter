@@ -1,0 +1,17 @@
+{
+  "name": "Chips Counter",
+  "short_name": "Chips",
+  "description": "Track poker chips between dealer and players",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a2238",
+  "theme_color": "#1a2238",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
